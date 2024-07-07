@@ -11,25 +11,25 @@ export default function ListarClientes(clientes: Cliente[]): void {
 
     console.log(`\n=====> Lista de Clientes Registrados <=====`);
 
-    clientes.forEach((cliente, index) => {
+    clientes.forEach((clientes, index) => {
         console.log(`\nCliente ${index + 1}:`);
-        console.log(`Nome: ${cliente.nome}`);
-        console.log(`Nome Social: ${cliente.nomeSocial}`);
-        console.log(`Data de Nascimento: ${cliente.dataNascimento.toDateString()}`);
-        console.log(`Data de Cadastro: ${cliente.dataCadastro.toDateString()}`);
-        console.log(`Endereço: ${cliente.endereco.rua}, ${cliente.endereco.bairro}, ${cliente.endereco.cidade}, ${cliente.endereco.estado}, ${cliente.endereco.pais}, ${cliente.endereco.codigoPostal}`);
+        console.log(`Nome: ${clientes.nome}`);
+        console.log(`Nome Social: ${clientes.nomeSocial}`);
+        console.log(`Data de Nascimento: ${clientes.dataNascimento.toDateString()}`);
+        console.log(`Data de Cadastro: ${clientes.dataCadastro.toDateString()}`);
+        console.log(`Endereço: ${clientes.endereco.rua}, ${clientes.endereco.bairro}, ${clientes.endereco.cidade}, ${clientes.endereco.estado}, ${clientes.endereco.pais}, ${clientes.endereco.codigoPostal}`);
 
-        cliente.telefones.forEach((telefone, telIndex) => {
+        clientes.telefones.forEach((telefone, telIndex) => {
             console.log(`Telefone ${telIndex + 1}: (${telefone.ddd}) ${telefone.numero}`);
         });
 
-        cliente.documentos.forEach((documento, docIndex) => {
+        clientes.documentos.forEach((documento, docIndex) => {
             console.log(`Documento ${docIndex + 1}: Tipo: ${documento.tipo}, Número: ${documento.numero}, Data de Emissão: ${documento.dataExpedicao.toDateString()}`);
         });
 
-        if (cliente.dependentes.length > 0) {
+        if (clientes.dependentes.length > 0) {
             console.log("\nDependentes:");
-            cliente.dependentes.forEach((dependente, depIndex) => {
+            clientes.dependentes.forEach((dependente, depIndex) => {
                 console.log(`Dependente ${depIndex + 1}:`);
                 console.log(`   Nome: ${dependente.nome}`);
                 console.log(`   Nome Social: ${dependente.nomeSocial}`);
@@ -48,8 +48,3 @@ export default function ListarClientes(clientes: Cliente[]): void {
         }
     });
 }
-
-// Exemplo de uso
-// const clientList: Cliente[] = [];
-// Cadastrar(clientList);
-// ListarClientes(clientList);

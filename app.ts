@@ -16,19 +16,16 @@ while(execucao){
     console.log(`2 - Listar Clientes`)
     console.log(`0 - sair`)
     let entrada = new Entrada()
-    let opcao = entrada.receberNumero(`Selecione uma das opções digitando o número correspondente:`)
-    switch(opcao){
-        case 1:
-            CadastrarCliente();
-            break
-        case 2:
-            ListarClientes();
-            break;
-        case 0:
-            execucao = false
-            console.log(`Fim do atendimento.`)
-            break;
-        default:
-            console.log(`Erro, repita o processo.`)
+    let opcao = entrada.receberNumero("Insira o número da opção desejada: ");
+
+    if (opcao === 1) {
+        CadastrarCliente;
+    } else if (opcao === 2) {
+        ListarClientes;
+        }
+    else if (opcao === 0) {
+        execucao = false;
+    } else {
+        console.log("Opção inválida! Por favor, escolha uma opção válida.");
     }
 }
