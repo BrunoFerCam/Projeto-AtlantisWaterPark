@@ -2,6 +2,7 @@ import Entrada from "./teste/entrada";
 import ListarClientes from "./servicos/listarCliente";
 import CadastrarCliente from "./servicos/cadastrarCliente";
 import Cliente from "./modelos/valores/cliente";
+import deletarCliente from "./servicos/deletarCliente";
 
 console.log(`Inciando sequência de interação com o usuário.`);
 console.log(` `)
@@ -23,6 +24,10 @@ while(execucao){
     } else if (opcao === 2) {
         ListarClientes;
         }
+    else if (opcao === 3) {
+        console.log("Opção 3");
+        deletarCliente
+    }
     else if (opcao === 0) {
         execucao = false;
     } else {
