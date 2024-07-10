@@ -15,13 +15,16 @@ while(execucao){
     console.log(`*---------------------------*`)    
     console.log(`1 - Cadastrar cliente`)
     console.log(`2 - Listar Clientes`)
+    console.log(`3 - Deletar Cliente`)
     console.log(`0 - sair`)
     let entrada = new Entrada()
     let opcao = entrada.receberNumero("Insira o número da opção desejada: ");
 
     if (opcao === 1) {
+        console.log("Opção 1");
         CadastrarCliente;
     } else if (opcao === 2) {
+        console.log("Opção 2");
         ListarClientes;
         }
     else if (opcao === 3) {

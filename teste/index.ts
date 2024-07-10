@@ -23,5 +23,21 @@ dependente.endereco = (cliente.endereco.clonar() as Endereco)
 dependente.titular = cliente
 cliente.dependentes.push(dependente)
 
+let segundoCliente = new Cliente()
+segundoCliente.nome = `Maria da Glória Joana Carlota Leopoldina da Cruz`
+segundoCliente.nomeSocial = `Dona Maria II`
+segundoCliente.dataCadastro = new Date(1819, 3, 4)
+segundoCliente.dataNascimento = new Date(1819, 4, 4)
+segundoCliente.endereco = cliente.endereco.clonar() as Endereco
+
+let terceiroCliente = new Cliente()
+terceiroCliente.nome = `Leopoldina Teresa Francisca Carolina Micaela Gabriela Rafaela Gonzaga`
+terceiroCliente.nomeSocial = `Princesa Leopoldina`
+terceiroCliente.dataCadastro = new Date(1826, 1, 13)
+terceiroCliente.dataNascimento = new Date(1847, 7, 13)
+terceiroCliente.endereco = cliente.endereco.clonar() as Endereco
+
+console.log(terceiroCliente);
+console.log(segundoCliente);
 console.log(cliente);
 console.log(dependente);
