@@ -22,7 +22,6 @@ export default function CadastrarCliente(clientes: Cliente[] = []): void {
     endereco.bairro = prompt("Bairro: ");
     endereco.cidade = prompt("Cidade: ");
     endereco.estado = prompt("Estado: ");
-    endereco.pais = prompt("País: ");
     endereco.codigoPostal = prompt("CEP: ");
     cliente.endereco = endereco;
 
@@ -66,7 +65,7 @@ export default function CadastrarCliente(clientes: Cliente[] = []): void {
     console.log(`Nome Social: ${cliente.nomeSocial}`);
     console.log(`Data de Nascimento: ${cliente.dataNascimento.toDateString()}`);
     console.log(`Data de Cadastro: ${cliente.dataCadastro.toDateString()}`);
-    console.log(`Endereço: ${cliente.endereco.rua}, ${cliente.endereco.bairro}, ${cliente.endereco.cidade}, ${cliente.endereco.estado}, ${cliente.endereco.pais}, ${cliente.endereco.codigoPostal}`);
+    console.log(`Endereço: ${cliente.endereco.rua}, ${cliente.endereco.bairro}, ${cliente.endereco.cidade}, ${cliente.endereco.estado}, ${cliente.endereco.codigoPostal}`);
     cliente.telefones.forEach((telefone, index) => {
         console.log(`Telefone ${index + 1}: (${telefone.ddd}) ${telefone.numero}`);
     });
@@ -83,7 +82,7 @@ export default function CadastrarCliente(clientes: Cliente[] = []): void {
             console.log(`Data de Nascimento: ${dependente.dataNascimento.toDateString()}`);
             console.log(`Data de Cadastro: ${dependente.dataCadastro.toDateString()}`);
             if (dependente.endereco) { // Check if endereco is defined
-                console.log(`Endereço: ${dependente.endereco.rua}, ${dependente.endereco.bairro}, ${dependente.endereco.cidade}, ${dependente.endereco.estado}, ${dependente.endereco.pais}, ${dependente.endereco.codigoPostal}`);
+                console.log(`Endereço: ${dependente.endereco.rua}, ${dependente.endereco.bairro}, ${dependente.endereco.cidade}, ${dependente.endereco.estado}, ${dependente.endereco.codigoPostal}`);
             } else {
                 console.log("Endereço: Informação não disponível");
             }

@@ -5,7 +5,6 @@ export default class Endereco implements Prototipo {
     public bairro: string
     public cidade: string
     public estado: string
-    public pais: string
     public codigoPostal: string
 
     public clonar(): Prototipo {
@@ -14,7 +13,6 @@ export default class Endereco implements Prototipo {
         endereco.bairro = this.bairro
         endereco.cidade = this.cidade
         endereco.estado = this.estado
-        endereco.pais = this.pais
         endereco.codigoPostal = this.codigoPostal
         return endereco
     }

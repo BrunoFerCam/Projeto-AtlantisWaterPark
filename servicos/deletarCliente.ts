@@ -17,7 +17,7 @@ export default function deletarCliente(clientes: Cliente[]): void {
         console.log(`Nome Social: ${cliente.nomeSocial}`);
         console.log(`Data de Nascimento: ${cliente.dataNascimento.toDateString()}`);
         console.log(`Data de Cadastro: ${cliente.dataCadastro.toDateString()}`);
-        console.log(`Endereço: ${cliente.endereco.rua}, ${cliente.endereco.bairro}, ${cliente.endereco.cidade}, ${cliente.endereco.estado}, ${cliente.endereco.pais}, ${cliente.endereco.codigoPostal}`);
+        console.log(`Endereço: ${cliente.endereco.rua}, ${cliente.endereco.bairro}, ${cliente.endereco.cidade}, ${cliente.endereco.estado}, ${cliente.endereco.codigoPostal}`);
 
         cliente.telefones.forEach((telefone, telIndex) => {
             console.log(`Telefone ${telIndex + 1}: (${telefone.ddd}) ${telefone.numero}`);
@@ -35,7 +35,7 @@ export default function deletarCliente(clientes: Cliente[]): void {
                 console.log(`   Nome Social: ${dependente.nomeSocial}`);
                 console.log(`   Data de Nascimento: ${dependente.dataNascimento.toDateString()}`);
                 console.log(`   Data de Cadastro: ${dependente.dataCadastro.toDateString()}`);
-                console.log(`   Endereço: ${dependente.endereco.rua}, ${dependente.endereco.bairro}, ${dependente.endereco.cidade}, ${dependente.endereco.estado}, ${dependente.endereco.pais}, ${dependente.endereco.codigoPostal}`);
+                console.log(`   Endereço: ${dependente.endereco.rua}, ${dependente.endereco.bairro}, ${dependente.endereco.cidade}, ${dependente.endereco.estado}, ${dependente.endereco.codigoPostal}`);
                 dependente.telefones.forEach((telefone, depTelIndex) => {
                     console.log(`   Telefone ${depTelIndex + 1}: (${telefone.ddd}) ${telefone.numero}`);
                 });
