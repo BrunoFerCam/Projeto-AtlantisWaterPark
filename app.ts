@@ -22,14 +22,14 @@ while(execucao){
 
     if (opcao === 1) {
         console.log("Opção 1");
-        CadastrarCliente;
+        CadastrarCliente();
     } else if (opcao === 2) {
         console.log("Opção 2");
-        ListarClientes;
+        ListarClientes([]);
         }
     else if (opcao === 3) {
         console.log("Opção 3");
-        deletarCliente
+        deletarCliente([]);
     }
     else if (opcao === 0) {
         execucao = false;
