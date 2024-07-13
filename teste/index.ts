@@ -10,7 +10,6 @@ endereco.rua = `R. do Catete`
 endereco.bairro = `Copacabana`
 endereco.cidade = `Rio de Janeiro`
 endereco.estado = `Rio de Janeiro`
-endereco.pais = `Brasil`
 endereco.codigoPostal = `22220-000`
 cliente.endereco = endereco
 
