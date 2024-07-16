@@ -3,13 +3,15 @@ import Endereco from "../modelos/valores/endereco";
 import Documento from '../modelos/valores/documento';
 import Telefone from "../modelos/valores/telefone";
 import promptSync from 'prompt-sync';
+import Entrada from "../teste/entrada";
 
 const prompt = promptSync();
 
 export default function CadastrarCliente(clientes: Cliente[] = []): void {
     console.log(`\n=====> Novo Registro de Cliente <=====`);
 
-    const cliente = new Cliente();
+    let entrada: Entrada = new Entrada();
+    let cliente = new Cliente();
     cliente.nome = prompt("Informe o nome do cliente: ");
     cliente.nomeSocial = prompt("Informe o nome social do cliente: ");
     cliente.dataNascimento = new Date(prompt("Data de nascimento do cliente (yyyy-mm-dd): "));
@@ -17,7 +19,7 @@ export default function CadastrarCliente(clientes: Cliente[] = []): void {
     cliente.titular = cliente;
 
     console.log(`\n=====> Endereço <=====`);
-    const endereco = new Endereco();
+    let endereco = new Endereco();
     endereco.rua = prompt("Rua: ");
     endereco.bairro = prompt("Bairro: ");
     endereco.cidade = prompt("Cidade: ");
