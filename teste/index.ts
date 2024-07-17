@@ -36,6 +36,22 @@ terceiroCliente.dataCadastro = new Date(1826, 1, 13)
 terceiroCliente.dataNascimento = new Date(1847, 7, 13)
 terceiroCliente.endereco = cliente.endereco.clonar() as Endereco
 
+let quartoCliente = new Cliente()
+quartoCliente.nome = `Amélia Augusta Eugênia de Leuchtenberg`
+quartoCliente.nomeSocial = `Princesa Amélia`
+quartoCliente.dataCadastro = new Date(1812, 1, 26)
+quartoCliente.dataNascimento = new Date(1812, 7, 31)
+quartoCliente.endereco = cliente.endereco.clonar() as Endereco
+quartoCliente.dependentes.push(cliente);
+
+let quintoCliente = new Cliente()
+quintoCliente.nome = `Maria Leopoldina Josefa Carolina de Habsburgo-Lorena`
+quintoCliente.nomeSocial = `Arquiduquesa Maria Leopoldina`
+quintoCliente.dataCadastro = new Date(1797, 1, 22)
+quintoCliente.dataNascimento = new Date(1797, 1, 22)
+quintoCliente.endereco = cliente.endereco.clonar() as Endereco
+quintoCliente.dependentes.push(quartoCliente);
+
 console.log(terceiroCliente);
 console.log(segundoCliente);
 console.log(cliente);
