@@ -22,7 +22,8 @@ while(execucao){
 
     if (opcao === 1) {
         console.log("Opção 1");
-        const cadastrarCliente = new CadastrarCliente();
+        CadastrarCliente([]);
+        
     } else if (opcao === 2) {
         console.log("Opção 2");
         ListarClientes([]);

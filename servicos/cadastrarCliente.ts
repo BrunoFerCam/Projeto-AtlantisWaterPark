@@ -4,134 +4,54 @@ import Documento from '../modelos/valores/documento';
 import Telefone from "../modelos/valores/telefone";
 import Entrada from "../teste/entrada";
 import { TipoDocumento } from "../enumeracoes/tipoDocumento"
+const prompt = require('prompt-sync')();
 
-export default class CadastrarCliente{
+export default function Cadastrar (clientes: Cliente[] = []): void {
 
-    public  CadastrarCliente(clientes: Cliente[] = []): void {
-        console.log(`\nCadastro do cliente`);
-        let entrada: Entrada = new Entrada();
-        let cliente = new Cliente();
-
-        cliente.nome = entrada.receberTexto(`Informe o nome do cliente: `);
-        cliente.nomeSocial = entrada.receberTexto(`Informe o nome social do cliente: `);
-        cliente.dataNascimento = entrada.receberData(`Informe a data de nascimento do cliente neste modelo dd/mm/yyyy: `);
-        cliente.dataCadastro = new Date();
-
-        let telefone = new Telefone("", "");
-        telefone.ddd = entrada.receberTexto(`Informe o ddd do telefone: `);
-        telefone.numero = entrada.receberTexto(`Informe o telefone neste modelo xxxxx-xxxx: `);
-        cliente.telefones.push(telefone);
-
-        let endereco = new Endereco();
-        endereco.rua = entrada.receberTexto(`Informe a rua: `);
-        endereco.bairro = entrada.receberTexto(`Informe o bairro: `);
-        endereco.cidade = entrada.receberTexto(`Informe a cidade: `);
-        endereco.estado = entrada.receberTexto(`Informe o estado: `);
-        endereco.codigoPostal = entrada.receberTexto(`Informe o CEP neste modelo xxxxx-xxx: `);
-        cliente.endereco = endereco;
-
-        let documentoCPF = new Documento();
-        documentoCPF.numero = entrada.receberTexto(`Informe o CPF neste modelo xxx.xxx.xxx-xx: `);
-        documentoCPF.tipo = TipoDocumento.CPF;
-        documentoCPF.dataExpedicao = entrada.receberData(`Informe a data de expedição do CPF `);
-        cliente.documentos.push(documentoCPF);
-
-        let documentoRG = new Documento();
-        documentoRG.numero = entrada.receberTexto(`Informe o RG neste modelo xx.xxx.xxx-x: `);
-        documentoRG.tipo = TipoDocumento.RG;
-        documentoRG.dataExpedicao = entrada.receberData(`Informe a data de expedição do RG `);
-        cliente.documentos.push(documentoRG);
-
-        let documentoPassaporte = new Documento();
-        documentoPassaporte.numero = entrada.receberTexto(`Informe o passaporte neste modelo xxxxxxxxx: `);
-        documentoPassaporte.tipo = TipoDocumento.Passaporte;
-        documentoPassaporte.dataExpedicao = entrada.receberData(`Informe a data de expedição do Passaporte `);
-        cliente.documentos.push(documentoPassaporte);
-
-        clientes.push(cliente);
-        console.log(`Cadastro concluído com sucesso!`);
+    let cliente = new Cliente();
+    let dependentes = new Cliente();
+    cliente.nome = prompt("Nome: ");
+    cliente.nomeSocial = prompt("Nome Social: ");
+    cliente.dataNascimento = new Date(prompt("Data de Nascimento: "));
+    cliente.dataCadastro = new Date(prompt("Data de Cadastro: "));
+    cliente.titular = cliente;
     
-    // Exibindo detalhes do cliente cadastrado
-    console.log("\n=== Detalhes do Cliente ===");
-    console.log(`Nome: ${cliente.nome}`);
-    console.log(`Nome Social: ${cliente.nomeSocial}`);
-    console.log(`Data de Nascimento: ${cliente.dataNascimento.toDateString()}`);
-    console.log(`Data de Cadastro: ${cliente.dataCadastro.toDateString()}`);
-    console.log(`Endereço: ${cliente.endereco.rua}, ${cliente.endereco.bairro}, ${cliente.endereco.cidade}, ${cliente.endereco.estado}, ${cliente.endereco.codigoPostal}`);
-    cliente.telefones.forEach((telefone, index) => {
-        console.log(`Telefone ${index + 1}: (${telefone.ddd}) ${telefone.numero}`);
-    });
-    cliente.documentos.forEach((documento, index) => {
-        console.log(`Documento ${index + 1}: Tipo: ${documento.tipo}, Número: ${documento.numero}, Data de Emissão: ${documento.dataExpedicao.toDateString()}`);
-    });
-
-    if (cliente.dependentes.length > 0) {
-        console.log("\n=== Detalhes dos Dependentes ===");
-        cliente.dependentes.forEach((dependente, index) => {
-            console.log(`Dependente ${index + 1}:`);
-            console.log(`Nome: ${dependente.nome}`);
-            console.log(`Nome Social: ${dependente.nomeSocial}`);
-            console.log(`Data de Nascimento: ${dependente.dataNascimento.toDateString()}`);
-            console.log(`Data de Cadastro: ${dependente.dataCadastro.toDateString()}`);
-            if (dependente.endereco) { // Check if endereco is defined
-                console.log(`Endereço: ${dependente.endereco.rua}, ${dependente.endereco.bairro}, ${dependente.endereco.cidade}, ${dependente.endereco.estado}, ${dependente.endereco.codigoPostal}`);
-            } else {
-                console.log("Endereço: Informação não disponível");
-            }
-            dependente.telefones.forEach((telefone, telIndex) => {
-                console.log(`Telefone ${telIndex + 1}: (${telefone.ddd}) ${telefone.numero}`);
-            });
-            dependente.documentos.forEach((documento, docIndex) => {
-                console.log(`Documento ${docIndex + 1}: Tipo: ${documento.tipo}, Número: ${documento.numero}, Data de Emissão: ${documento.dataExpedicao.toDateString()}`);
-            });
-        });
-    } else {
-        console.log("\nNão há dependentes registrados para este cliente.");
+    console.log(`\nEndereço:`);
+    let endereco = new Endereco();
+    endereco.rua = prompt("Rua: ");
+    endereco.bairro = prompt("Bairro: ");
+    endereco.cidade = prompt("Cidade: ");
+    endereco.estado = prompt("Estado: ");
+    endereco.codigoPostal = prompt("Código Postal: ");
+    cliente.endereco = endereco
+    
+    
+    let numTelefones = parseInt(prompt("\nQuantos telefones deseja cadastrar? "));
+    for (let i = 0; i < numTelefones; i++) {
+        let telefone = new Telefone();
+        telefone.ddd = prompt("DDD do telefone " + (i+1) + ": ");
+        telefone.numero = prompt("Número do telefone " + (i+1) + ": ");
+        console.log("\n")
+        cliente.telefones.push(telefone);
+        
     }
-
-
+    
+    let dependentesOpc = parseInt(prompt("Quantos dependentes deseja cadastrar? "));
+    for (let i = 0; i < dependentesOpc; i++) {
+        dependentes.nome = prompt("Nome do dependente " + (i+1) + ": ");
+        dependentes.nomeSocial = prompt("Nome Social do dependente " + (i+1) + ": ");
+        dependentes.dataNascimento = new Date(prompt("Data de Nascimento: "));
+        dependentes.dataCadastro = new Date(prompt("Data de Cadastro: "));
+        dependentes.endereco = (cliente.endereco.clonar() as Endereco)
+        dependentes.telefones = cliente.telefones.map((telefone: Telefone) => telefone.clonar()) as Telefone[];
+        dependentes.titular = cliente;
+        cliente.dependentes.push(dependentes);
+        
+        console.log("\n");
+    }
+    
     clientes.push(cliente);
-    console.log("\nCliente cadastrado com sucesso!");
+    console.log("Cadastrado com sucesso!");
 
-    // Exibindo detalhes do cliente cadastrado
-    console.log("\n=== Detalhes do Cliente ===");
-    console.log(`Nome: ${cliente.nome}`);
-    console.log(`Nome Social: ${cliente.nomeSocial}`);
-    console.log(`Data de Nascimento: ${cliente.dataNascimento.toDateString()}`);
-    console.log(`Data de Cadastro: ${cliente.dataCadastro.toDateString()}`);
-    console.log(`Endereço: ${cliente.endereco.rua}, ${cliente.endereco.bairro}, ${cliente.endereco.cidade}, ${cliente.endereco.estado}, ${cliente.endereco.codigoPostal}`);
-    cliente.telefones.forEach((telefone, index) => {
-        console.log(`Telefone ${index + 1}: (${telefone.ddd}) ${telefone.numero}`);
-    });
-    cliente.documentos.forEach((documento, index) => {
-        console.log(`Documento ${index + 1}: Tipo: ${documento.tipo}, Número: ${documento.numero}, Data de Emissão: ${documento.dataExpedicao.toDateString()}`);
-    });
-
-    if (cliente.dependentes.length > 0) {
-        console.log("\n=== Detalhes dos Dependentes ===");
-        cliente.dependentes.forEach((dependente, index) => {
-            console.log(`Dependente ${index + 1}:`);
-            console.log(`Nome: ${dependente.nome}`);
-            console.log(`Nome Social: ${dependente.nomeSocial}`);
-            console.log(`Data de Nascimento: ${dependente.dataNascimento.toDateString()}`);
-            console.log(`Data de Cadastro: ${dependente.dataCadastro.toDateString()}`);
-            if (dependente.endereco) { // Check if endereco is defined
-                console.log(`Endereço: ${dependente.endereco.rua}, ${dependente.endereco.bairro}, ${dependente.endereco.cidade}, ${dependente.endereco.estado}, ${dependente.endereco.codigoPostal}`);
-            } else {
-                console.log("Endereço: Informação não disponível");
-            }
-            dependente.telefones.forEach((telefone, telIndex) => {
-                console.log(`Telefone ${telIndex + 1}: (${telefone.ddd}) ${telefone.numero}`);
-            });
-            dependente.documentos.forEach((documento, docIndex) => {
-                console.log(`Documento ${docIndex + 1}: Tipo: ${documento.tipo}, Número: ${documento.numero}, Data de Emissão: ${documento.dataExpedicao.toDateString()}`);
-            });
-        });
-    } else {
-        console.log("\nNão há dependentes registrados para este cliente.");
-    }
+    
 }
-}
-// Exemplo de uso
-// const clientList: Cliente[] = [];
-// Cadastrar(clientList);
