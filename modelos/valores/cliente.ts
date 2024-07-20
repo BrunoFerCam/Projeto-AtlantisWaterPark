@@ -7,9 +7,9 @@ export default class Cliente {
     public nomeSocial: string
     public dataNascimento: Date
     public dataCadastro: Date
-    public telefones: Telefone[] = []
-    public endereco: Endereco
-    public documentos: Documento[] = []
-    public dependentes: Cliente[] = []
-    public titular: Cliente | string
+    public telefones?: Telefone[] = []
+    public endereco?: Endereco
+    public documentos?: Documento[] = []
+    public dependentes?: Cliente[] = []
+    public titular?: Cliente | string
 }

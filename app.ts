@@ -3,6 +3,11 @@ import ListarClientes from "./servicos/listarCliente";
 import CadastrarCliente from "./servicos/cadastrarCliente";
 import Cliente from "./modelos/valores/cliente";
 import deletarCliente from "./servicos/deletarCliente";
+import Telefone from "./modelos/valores/telefone";
+import Endereco from "./modelos/valores/endereco";
+import Documento from "./modelos/valores/documento";
+
+const clientes = new Array<Cliente>();
 
 console.log(`Inciando sequência de interação com o usuário.`);
 console.log(` `)
@@ -22,15 +27,15 @@ while(execucao){
 
     if (opcao === 1) {
         console.log("Opção 1");
-        CadastrarCliente([]);
+        CadastrarCliente(clientes);
         
     } else if (opcao === 2) {
         console.log("Opção 2");
-        ListarClientes([]);
+        ListarClientes(clientes);
         }
     else if (opcao === 3) {
         console.log("Opção 3");
-        deletarCliente([]);
+        deletarCliente(clientes);
     }
     else if (opcao === 0) {
         execucao = false;
