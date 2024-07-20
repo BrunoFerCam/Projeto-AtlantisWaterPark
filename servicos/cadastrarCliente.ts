@@ -4,11 +4,9 @@ import Documento from '../modelos/valores/documento';
 import Telefone from "../modelos/valores/telefone";
 import Entrada from "../teste/entrada";
 import { TipoDocumento } from "../enumeracoes/tipoDocumento"
-
-
 const prompt = require('prompt-sync')();
 
-export default function CadastrarCliente (clientes: Cliente[] = []): void {
+export default function Cadastrar (clientes: Cliente[] = []): void {
 
     let cliente = new Cliente();
     let dependentes = new Cliente();
