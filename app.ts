@@ -7,8 +7,6 @@ import Telefone from "./modelos/valores/telefone";
 import Endereco from "./modelos/valores/endereco";
 import Documento from "./modelos/valores/documento";
 
-const clientes = new Array<Cliente>();
-
 console.log(`Inciando sequência de interação com o usuário.`);
 console.log(` `)
 console.log(` `)
