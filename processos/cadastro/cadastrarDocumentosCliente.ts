@@ -1,6 +1,6 @@
-import Processo from "../abstracoes/processo";
-import MenuTipoDocumento from "../menus/menuTipoDocumento";
-import Cliente from "../modelos/valores/cliente";
+import Processo from "../../abstracoes/processo";
+import MenuTipoDocumento from "../../menus/menuTipoDocumento";
+import Cliente from "../../modelos/valores/cliente";
 import CadastroRg from "./cadastroRg";
 
 export default class CadastrarDocumentosCliente extends Processo {
