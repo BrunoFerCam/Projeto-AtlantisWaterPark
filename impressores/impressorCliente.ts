@@ -15,19 +15,19 @@ export default class ImpressorCliente implements Impressor {
     }
     imprimir(): string {
         let impressao = `****************************\n`
-            + `| Nome: ${this.cliente.nome}\n`
-            + `| Nome social: ${this.cliente.nomeSocial}\n`
-            + `| Data de nascimento: ${this.cliente.dataNascimento.toLocaleDateString()}\n`
-            + `| Data de cadastro: ${this.cliente.dataCadastro.toLocaleDateString()}\n`
-            + `| Dependentes: ${this.cliente.dependentes.length}`
+            + `| Nome: ${this.cliente.Nome}\n`
+            + `| Nome social: ${this.cliente.NomeSocial}\n`
+            + `| Data de nascimento: ${this.cliente.DataNascimento.toLocaleDateString()}\n`
+            + `| Data de cadastro: ${this.cliente.DataCadastro.toLocaleDateString()}\n`
+            + `| Dependentes: ${this.cliente.Dependentes.length}`
 
-        this.impressor = new ImpressorEndereco(this.cliente.endereco)
+        this.impressor = new ImpressorEndereco(this.cliente.Endereco)
         impressao = impressao + `\n${this.impressor.imprimir()}`
 
-        this.impressor = new ImpressorTelefone(this.cliente.telefones)
+        this.impressor = new ImpressorTelefone(this.cliente.Telefones)
         impressao = impressao + `\n${this.impressor.imprimir()}`
 
-        this.impressor = new ImpressorDocumentos(this.cliente.documentos)
+        this.impressor = new ImpressorDocumentos(this.cliente.Documentos)
         impressao = impressao + `\n${this.impressor.imprimir()}`
 
         impressao = impressao + `\n****************************`

@@ -24,7 +24,10 @@ export default class CadastroClienteDependente extends Processo {
         const nome = this.entrada.receberTexto('Qual o nome do novo cliente?');
         const nomeSocial = this.entrada.receberTexto('Qual o nome social do novo cliente?');
         const dataNascimento = this.entrada.receberData('Qual a data de nascimento?');
-        const clienteDependente = new Cliente(nome, nomeSocial, dataNascimento);
+        const clienteDependente = new Cliente();
+        clienteDependente.Nome = nome;
+        clienteDependente.NomeSocial = nomeSocial;
+        clienteDependente.DataNascimento = dataNascimento;
         
         titularEncontrado.Dependentes.push(clienteDependente);
 

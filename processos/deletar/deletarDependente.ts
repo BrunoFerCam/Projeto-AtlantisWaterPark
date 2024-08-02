@@ -11,14 +11,14 @@ export default class DeletarDependente extends Processo {
         let nomeDependente = this.entrada.receberTexto('Qual o nome do dependente a ser removido? ');
         
         let armazem = Armazem.InstanciaUnica;
-        let clienteTitular = armazem.Clientes.find(cliente => cliente.nome === nomeTitular);
+        let clienteTitular = armazem.Clientes.find(cliente => cliente.Nome === nomeTitular);
 
         if (clienteTitular) {
-            let dependenteIndex = clienteTitular.dependentes.findIndex(dependente => dependente.nome === nomeDependente);
+            let dependenteIndex = clienteTitular.Dependentes.findIndex(dependente => dependente.Nome === nomeDependente);
             
             if (dependenteIndex !== -1) {
                 
-                clienteTitular.dependentes.splice(dependenteIndex, 1);
+                clienteTitular.Dependentes.splice(dependenteIndex, 1);
                 console.log('Dependente removido com sucesso.');
             } else {
                 console.log('Dependente não encontrado.');

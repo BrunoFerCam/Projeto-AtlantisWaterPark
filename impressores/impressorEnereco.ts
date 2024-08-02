@@ -8,10 +8,10 @@ export default class ImpressorEndereco implements Impressor {
     }
     imprimir(): string {
         let impressao = `| Endereco:\n`
-            + `| rua: ${this.endereco.rua}\n`
-            + `| bairro: ${this.endereco.bairro}\n`
-            + `| cidade: ${this.endereco.cidade}\n`
-            + `| estado: ${this.endereco.estado}\n`
+            + `| rua: ${this.endereco.Rua}\n`
+            + `| bairro: ${this.endereco.Bairro}\n`
+            + `| cidade: ${this.endereco.Cidade}\n`
+            + `| estado: ${this.endereco.Estado}\n`
         return impressao
     }
 }

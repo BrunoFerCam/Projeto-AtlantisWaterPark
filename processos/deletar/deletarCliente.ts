@@ -12,7 +12,7 @@ export default class DeletarCliente extends Processo {
 
         
         let clienteIndex = armazem.Clientes.findIndex(cliente => 
-            cliente.nome === nome 
+            cliente.Nome === nome 
         )
         
         

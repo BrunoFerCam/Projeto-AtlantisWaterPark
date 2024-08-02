@@ -1,13 +1,13 @@
 import Prototipo from "../../interfaces/prototipo"
 
 export default class Telefone implements Prototipo {
-    public ddd: string
-    public numero: string
+    public Ddd: string
+    public Numero: string
 
     public clonar(): Prototipo {
         let telefone = new Telefone()
-        telefone.ddd = this.ddd
-        telefone.numero = this.numero
+        telefone.Ddd = this.Ddd
+        telefone.Numero = this.Numero
         return telefone
     }
 }

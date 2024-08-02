@@ -12,7 +12,7 @@ export default class ImpressorTelefone {
     imprimir(): string {
         let impressao = "| Telefones:\n|\n";
         for (const telefone of this.telefones) {
-            impressao += `| Número : ( ${telefone.ddd} ) ${telefone.numero} \n`;
+            impressao += `| Número : ( ${telefone.Ddd} ) ${telefone.Numero} \n`;
         } console.log(`|`);
         
 

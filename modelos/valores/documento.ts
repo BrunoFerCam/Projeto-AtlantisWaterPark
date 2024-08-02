@@ -1,7 +1,7 @@
 import { TipoDocumento } from "../../enumeracoes/tipoDocumento";
 
 export default class Documento {
-    public numero: string
-    public tipo: TipoDocumento | String
-    public dataExpedicao: Date
+    public Numero: string
+    public Tipo: TipoDocumento | String
+    public DataExpedicao: Date
 }
