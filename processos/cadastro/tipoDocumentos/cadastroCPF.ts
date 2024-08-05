@@ -14,6 +14,6 @@ export default class CadastroCpf extends Processo {
         let numero = this.entrada.receberTexto('Qual o número do documento?')
         let dataExpedicao = this.entrada.receberData('Qual a data de expedição do documento?')
         let cpf = new Documento()
-        this.cliente.documentos.push(cpf)
+        this.cliente.Documentos.push(cpf)
     }
 }

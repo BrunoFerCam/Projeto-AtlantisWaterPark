@@ -19,7 +19,7 @@ export default class CadastroTelefoneTitular extends Processo {
             console.log('Cadastrando o telefone...')
             let telefone = new Telefone()
             telefone.Ddd = ddd
-            telefone.Numero = numeroaa
+            telefone.Numero = numero
             this.cliente.Telefones.push(telefone);
         }
         console.log('Finalizando o cadastro de telefones...')

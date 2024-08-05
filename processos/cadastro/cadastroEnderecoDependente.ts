@@ -1,6 +1,6 @@
 import Processo from "../../abstracoes/processo";
-import Cliente from "../../modelos/cliente";
-import Endereco from "../../modelos/endereco";
+import Cliente from "../../modelos/valores/cliente";
+import Endereco from "../../modelos/valores/endereco";
 import Armazem from "../../dominio/armazem";
 
 export default class CadastroEnderecoDependente extends Processo {
@@ -24,7 +24,7 @@ export default class CadastroEnderecoDependente extends Processo {
             let estado = this.entrada.receberTexto('Qual o estado?')
             let pais = this.entrada.receberTexto('Qual o país?')
             let codigoPostal = this.entrada.receberTexto('Qual o código postal?')
-            let endereco = new Endereco(rua,bairro,cidade,estado,pais,codigoPostal)
+            let endereco = new Endereco()
             this.cliente.Endereco = endereco
         } if (opcEndereçoDependente === 2) {
             let clienteTitular = Armazem.InstanciaUnica.Clientes.find(cliente => cliente.Nome === this.nomeTitular)

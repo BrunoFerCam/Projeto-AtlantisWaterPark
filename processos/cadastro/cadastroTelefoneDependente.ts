@@ -22,25 +22,19 @@ export default class CadastroEnderecoDependente extends Processo {
             let bairro = this.entrada.receberTexto('Qual o bairro?')
             let cidade = this.entrada.receberTexto('Qual a cidade?')
             let estado = this.entrada.receberTexto('Qual o estado?')
-            let pais = this.entrada.receberTexto('Qual o país?')
             let codigoPostal = this.entrada.receberTexto('Qual o código postal?')
-            let endereco = new Endereco(rua,bairro,cidade,estado,pais,codigoPostal)
+            let endereco = new Endereco()
+            endereco.Rua = rua
+            endereco.Bairro = bairro
+            endereco.Cidade = cidade
+            endereco.Estado = estado
+            endereco.CodigoPostal = codigoPostal
             this.cliente.Endereco = endereco
         } if (opcEndereçoDependente === 2) {
             let clienteTitular = Armazem.InstanciaUnica.Clientes.find(cliente => cliente.Nome === this.nomeTitular)
             
             console.log( `Endereços de ${this.nomeTitular}:` )
             let enderecoTitular = clienteTitular?.Endereco
-            
-            let endereco = new Endereco(
-                enderecoTitular?.Rua ?? "",
-                enderecoTitular?.Bairro ?? "",
-                enderecoTitular?.Cidade ?? "",
-                enderecoTitular?.Estado ?? "",
-                enderecoTitular?.Pais ?? "",
-                enderecoTitular?.CodigoPostal ?? ""
-            );
-
             this.cliente.Endereco = endereco
 
         } else {
@@ -49,15 +43,6 @@ export default class CadastroEnderecoDependente extends Processo {
             
             console.log( `Endereços de ${this.nomeTitular}:` )
             let enderecoTitular = clienteTitular?.Endereco
-            
-            let endereco = new Endereco(
-                enderecoTitular?.Rua ?? "",
-                enderecoTitular?.Bairro ?? "",
-                enderecoTitular?.Cidade ?? "",
-                enderecoTitular?.Estado ?? "",
-                enderecoTitular?.Pais ?? "",
-                enderecoTitular?.CodigoPostal ?? ""
-            );
 
             this.cliente.Endereco = endereco
         }
