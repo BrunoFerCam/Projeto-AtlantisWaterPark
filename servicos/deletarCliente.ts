@@ -13,34 +13,34 @@ export default function deletarCliente(clientes: Cliente[]): void {
 
     clientes.forEach((cliente, index) => {
         console.log(`\nCliente ${index + 1}:`);
-        console.log(`Nome: ${cliente.nome}`);
-        console.log(`Nome Social: ${cliente.nomeSocial}`);
-        console.log(`Data de Nascimento: ${cliente.dataNascimento.toDateString()}`);
-        console.log(`Data de Cadastro: ${cliente.dataCadastro.toDateString()}`);
-        console.log(`Endereço: ${cliente.endereco.rua}, ${cliente.endereco.bairro}, ${cliente.endereco.cidade}, ${cliente.endereco.estado}, ${cliente.endereco.codigoPostal}`);
+        console.log(`Nome: ${cliente.Nome}`);
+        console.log(`Nome Social: ${cliente.NomeSocial}`);
+        console.log(`Data de Nascimento: ${cliente.DataNascimento.toDateString()}`);
+        console.log(`Data de Cadastro: ${cliente.DataCadastro.toDateString()}`);
+        console.log(`Endereço: ${cliente.Endereco.Rua}, ${cliente.Endereco.Bairro}, ${cliente.Endereco.Cidade}, ${cliente.Endereco.Estado}, ${cliente.Endereco.CodigoPostal}`);
 
-        cliente.telefones.forEach((telefone, telIndex) => {
-            console.log(`Telefone ${telIndex + 1}: (${telefone.ddd}) ${telefone.numero}`);
+        cliente.Telefones.forEach((telefone, telIndex) => {
+            console.log(`Telefone ${telIndex + 1}: (${telefone.Ddd}) ${telefone.Numero}`);
         });
 
-        cliente.documentos.forEach((documento, docIndex) => {
-            console.log(`Documento ${docIndex + 1}: Tipo: ${documento.tipo}, Número: ${documento.numero}, Data de Emissão: ${documento.dataExpedicao.toDateString()}`);
+        cliente.Documentos.forEach((documento, docIndex) => {
+            console.log(`Documento ${docIndex + 1}: Tipo: ${documento.Tipo}, Número: ${documento.Numero}, Data de Emissão: ${documento.DataExpedicao.toDateString()}`);
         });
 
-        if (cliente.dependentes.length > 0) {
+        if (cliente.Dependentes.length > 0) {
             console.log("\nDependentes:");
-            cliente.dependentes.forEach((dependente, depIndex) => {
+            cliente.Dependentes.forEach((dependente, depIndex) => {
                 console.log(`Dependente ${depIndex + 1}:`);
-                console.log(`   Nome: ${dependente.nome}`);
-                console.log(`   Nome Social: ${dependente.nomeSocial}`);
-                console.log(`   Data de Nascimento: ${dependente.dataNascimento.toDateString()}`);
-                console.log(`   Data de Cadastro: ${dependente.dataCadastro.toDateString()}`);
-                console.log(`   Endereço: ${dependente.endereco.rua}, ${dependente.endereco.bairro}, ${dependente.endereco.cidade}, ${dependente.endereco.estado}, ${dependente.endereco.codigoPostal}`);
-                dependente.telefones.forEach((telefone, depTelIndex) => {
-                    console.log(`   Telefone ${depTelIndex + 1}: (${telefone.ddd}) ${telefone.numero}`);
+                console.log(`   Nome: ${dependente.Nome}`);
+                console.log(`   Nome Social: ${dependente.NomeSocial}`);
+                console.log(`   Data de Nascimento: ${dependente.DataNascimento.toDateString()}`);
+                console.log(`   Data de Cadastro: ${dependente.DataCadastro.toDateString()}`);
+                console.log(`   Endereço: ${dependente.Endereco.Rua}, ${dependente.Endereco.Bairro}, ${dependente.Endereco.Cidade}, ${dependente.Endereco.Estado}, ${dependente.Endereco.CodigoPostal}`);
+                dependente.Telefones.forEach((telefone, depTelIndex) => {
+                    console.log(`   Telefone ${depTelIndex + 1}: (${telefone.Ddd}) ${telefone.Numero}`);
                 });
-                dependente.documentos.forEach((documento, depDocIndex) => {
-                    console.log(`   Documento ${depDocIndex + 1}: Tipo: ${documento.tipo}, Número: ${documento.numero}, Data de Emissão: ${documento.dataExpedicao.toDateString()}`);
+                dependente.Documentos.forEach((documento, depDocIndex) => {
+                    console.log(`   Documento ${depDocIndex + 1}: Tipo: ${documento.Tipo}, Número: ${documento.Numero}, Data de Emissão: ${documento.DataExpedicao.toDateString()}`);
                 });
             });
         } else {

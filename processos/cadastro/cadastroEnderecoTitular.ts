@@ -16,10 +16,14 @@ export default class CadastroEnderecoTitular extends Processo {
         let bairro = this.entrada.receberTexto('Qual o bairro?')
         let cidade = this.entrada.receberTexto('Qual a cidade?')
         let estado = this.entrada.receberTexto('Qual o estado?')
-        let pais = this.entrada.receberTexto('Qual o país?')
         let codigoPostal = this.entrada.receberTexto('Qual o código postal?')
         let endereco = new Endereco()
-        this.cliente.endereco = endereco
+        endereco.Rua = rua
+        endereco.Bairro = bairro
+        endereco.Cidade = cidade
+        endereco.Estado = estado
+        endereco.CodigoPostal = codigoPostal
+        this.cliente.Endereco = endereco
     }
 
 }

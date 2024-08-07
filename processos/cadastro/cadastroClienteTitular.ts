@@ -11,6 +11,9 @@ export default class CadastroClienteTitular extends Processo {
         let nomeSocial = this.entrada.receberTexto('Qual o nome social do novo cliente?')
         let dataNascimento = this.entrada.receberData('Qual a data de nascimento?')
         let cliente = new Cliente()
+        cliente.Nome = nome
+        cliente.NomeSocial = nomeSocial
+        cliente.DataNascimento = dataNascimento
 
         this.processo = new CadastroEnderecoTitular(cliente)
         this.processo.processar()

@@ -35,7 +35,7 @@ export default class CadastroEnderecoDependente extends Processo {
             
             console.log( `Endereços de ${this.nomeTitular}:` )
             let enderecoTitular = clienteTitular?.Endereco
-            this.cliente.Endereco = endereco
+            this.cliente.Endereco = enderecoTitular
 
         } else {
             console.log(`Opção inválida!`)
@@ -44,14 +44,7 @@ export default class CadastroEnderecoDependente extends Processo {
             console.log( `Endereços de ${this.nomeTitular}:` )
             let enderecoTitular = clienteTitular?.Endereco
             
-            let endereco = new Endereco(
-                enderecoTitular?.Rua ?? "",
-                enderecoTitular?.Bairro ?? "",
-                enderecoTitular?.Cidade ?? "",
-                enderecoTitular?.Estado ?? "",
-                enderecoTitular?.Pais ?? "",
-                enderecoTitular?.CodigoPostal ?? ""
-            );
+            let endereco = new Endereco();
 
             this.cliente.Endereco = endereco
         }

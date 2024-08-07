@@ -10,42 +10,42 @@ export default function Cadastrar (clientes: Cliente[] = []): void {
 
     let cliente = new Cliente();
     let dependentes = new Cliente();
-    cliente.nome = prompt("Nome: ");
-    cliente.nomeSocial = prompt("Nome Social: ");
-    cliente.dataNascimento = new Date(prompt("Data de Nascimento: "));
-    cliente.dataCadastro = new Date(prompt("Data de Cadastro: "));
-    cliente.titular = cliente;
+    cliente.Nome = prompt("Nome: ");
+    cliente.NomeSocial = prompt("Nome Social: ");
+    cliente.DataNascimento = new Date(prompt("Data de Nascimento: "));
+    cliente.DataCadastro = new Date(prompt("Data de Cadastro: "));
+    cliente.Titular = cliente;
     
     console.log(`\nEndereço:`);
     let endereco = new Endereco();
-    endereco.rua = prompt("Rua: ");
-    endereco.bairro = prompt("Bairro: ");
-    endereco.cidade = prompt("Cidade: ");
-    endereco.estado = prompt("Estado: ");
-    endereco.codigoPostal = prompt("Código Postal: ");
-    cliente.endereco = endereco
+    endereco.Rua = prompt("Rua: ");
+    endereco.Bairro = prompt("Bairro: ");
+    endereco.Cidade = prompt("Cidade: ");
+    endereco.Estado = prompt("Estado: ");
+    endereco.CodigoPostal = prompt("Código Postal: ");
+    cliente.Endereco = endereco
     
     
     let numTelefones = parseInt(prompt("\nQuantos telefones deseja cadastrar? "));
     for (let i = 0; i < numTelefones; i++) {
         let telefone = new Telefone();
-        telefone.ddd = prompt("DDD do telefone " + (i+1) + ": ");
-        telefone.numero = prompt("Número do telefone " + (i+1) + ": ");
+        telefone.Ddd = prompt("DDD do telefone " + (i+1) + ": ");
+        telefone.Numero = prompt("Número do telefone " + (i+1) + ": ");
         console.log("\n")
-        cliente.telefones.push(telefone);
+        cliente.Telefones.push(telefone);
         
     }
     
     let dependentesOpc = parseInt(prompt("Quantos dependentes deseja cadastrar? "));
     for (let i = 0; i < dependentesOpc; i++) {
-        dependentes.nome = prompt("Nome do dependente " + (i+1) + ": ");
-        dependentes.nomeSocial = prompt("Nome Social do dependente " + (i+1) + ": ");
-        dependentes.dataNascimento = new Date(prompt("Data de Nascimento: "));
-        dependentes.dataCadastro = new Date(prompt("Data de Cadastro: "));
-        dependentes.endereco = (cliente.endereco.clonar() as Endereco)
-        dependentes.telefones = cliente.telefones.map((telefone: Telefone) => telefone.clonar()) as Telefone[];
-        dependentes.titular = cliente;
-        cliente.dependentes.push(dependentes);
+        dependentes.Nome = prompt("Nome do dependente " + (i+1) + ": ");
+        dependentes.NomeSocial = prompt("Nome Social do dependente " + (i+1) + ": ");
+        dependentes.DataNascimento = new Date(prompt("Data de Nascimento: "));
+        dependentes.DataCadastro = new Date(prompt("Data de Cadastro: "));
+        dependentes.Endereco = (cliente.Endereco.clonar() as Endereco)
+        dependentes.Telefones = cliente.Telefones.map((telefone: Telefone) => telefone.clonar()) as Telefone[];
+        dependentes.Titular = cliente;
+        cliente.Dependentes.push(dependentes);
         
         console.log("\n");
     }
