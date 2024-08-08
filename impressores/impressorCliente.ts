@@ -15,11 +15,11 @@ export default class ImpressorCliente implements Impressor {
     }
     imprimir(): string {
         let impressao = `****************************\n`
-            + `| Nome: ${this.cliente.Nome}\n`
-            + `| Nome social: ${this.cliente.NomeSocial}\n`
-            + `| Data de nascimento: ${this.cliente.DataNascimento.toLocaleDateString()}\n`
-            + `| Data de cadastro: ${this.cliente.DataCadastro.toLocaleDateString()}\n`
-            + `| Dependentes: ${this.cliente.Dependentes.length}`
+            + `Nome: ${this.cliente.Nome}\n`
+            + `Nome social: ${this.cliente.NomeSocial}\n`
+            + `Data de nascimento: ${this.cliente.DataNascimento.toLocaleDateString()}\n`
+            + `Data de cadastro: ${this.cliente.DataCadastro.toLocaleDateString()}\n`
+            + `Dependentes: ${this.cliente.Dependentes.length}`
 
         this.impressor = new ImpressorEndereco(this.cliente.Endereco)
         impressao = impressao + `\n${this.impressor.imprimir()}`

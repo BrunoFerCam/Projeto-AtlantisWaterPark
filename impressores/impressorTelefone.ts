@@ -10,9 +10,9 @@ export default class ImpressorTelefone {
     }
 
     imprimir(): string {
-        let impressao = "| Telefones:\n|\n";
+        let impressao = "Telefones:\n|\n";
         for (const telefone of this.telefones) {
-            impressao += `| Número : ( ${telefone.Ddd} ) ${telefone.Numero} \n`;
+            impressao += `Número : ( ${telefone.Ddd} ) ${telefone.Numero} \n`;
         } console.log(`|`);
         
 
